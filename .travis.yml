@@ -1,0 +1,4 @@
+language: objective-c
+before_install: gem install slather -N
+script: xctool -workspace NSUserDefaultsCache/NSUserDefaultsCache.xcworkspace -scheme NSUserDefaultsCacheTests -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES clean build test
+after_success: slather

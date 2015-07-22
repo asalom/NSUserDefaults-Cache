@@ -1,0 +1,3 @@
+coverage_service: coveralls
+xcodeproj: NSUserDefaultsCache/NSUserDefaultsCache.xcodeproj
+source_directory: NSUserDefaults+Cache
