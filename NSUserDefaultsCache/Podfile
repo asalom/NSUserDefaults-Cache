@@ -1,0 +1,7 @@
+platform :ios, '8.0'
+
+xcodeproj 'NSUserDefaultsCache.xcodeproj'
+
+target "NSUserDefaultsCacheTests" do
+    pod 'OCMock', '~> 3.1'
+end
