@@ -13,6 +13,7 @@
 		3F74C7F91B5FA09D001B8F26 /* NSUserDefaults+CacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F74C7F81B5FA09D001B8F26 /* NSUserDefaults+CacheTests.m */; };
 		3F74C7FD1B5FA346001B8F26 /* NSUserDefaults+Cache.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F74C7FB1B5FA346001B8F26 /* NSUserDefaults+Cache.h */; };
 		3F74C7FE1B5FA346001B8F26 /* NSUserDefaults+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F74C7FC1B5FA346001B8F26 /* NSUserDefaults+Cache.m */; };
+		3F74C8011B5FAB06001B8F26 /* NSUserDefaultsCache.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 3F74C7D71B5FA065001B8F26 /* NSUserDefaultsCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +25,20 @@
 			remoteInfo = NSUserDefaultsCache;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3F74C7FF1B5FAADE001B8F26 /* Copy Framework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3F74C8011B5FAB06001B8F26 /* NSUserDefaultsCache.framework in Copy Framework */,
+			);
+			name = "Copy Framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3F74C7D71B5FA065001B8F26 /* NSUserDefaultsCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSUserDefaultsCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +198,7 @@
 				3F74C7DF1B5FA066001B8F26 /* Frameworks */,
 				3F74C7E01B5FA066001B8F26 /* Resources */,
 				ED76FEDD74C4B56EEF34BA5C /* Copy Pods Resources */,
+				3F74C7FF1B5FAADE001B8F26 /* Copy Framework */,
 			);
 			buildRules = (
 			);
