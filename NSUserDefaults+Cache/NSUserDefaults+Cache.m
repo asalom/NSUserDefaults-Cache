@@ -154,7 +154,7 @@ static NSUserDefaults * _userDefaults = nil;
  2.- Any file reference file: scheme URL will be treated as a non-file URL, and information which makes this URL compatible with 10.5 systems will also be written as part of the archive as well as its minimal bookmark data.
  3.- Any path-based file: scheme URL is written by first taking the absolute URL, getting the path from that and then determining if the path can be made relative to the user's home directory. If it can, the string is abbreviated by using stringByAbbreviatingWithTildeInPath and written out. This allows pre-10.6 clients to read the default and use -[NSString stringByExpandingTildeInPath] to use this information.
  */
-+ (NSURL *)cache_urlForKey:(NSString *)key {
++ (NSURL *)cache_URLForKey:(NSString *)key {
     if ([_cache objectForKey:key]) {
         return [_cache objectForKey:key];
     }
@@ -168,12 +168,12 @@ static NSUserDefaults * _userDefaults = nil;
     return value;
 }
 
-+ (NSURL *)cache_urlForKey:(NSString *)key defaultValue:(NSURL *)defaultValue {
-    NSURL *value = [self cache_urlForKey:key];
++ (NSURL *)cache_URLForKey:(NSString *)key defaultValue:(NSURL *)defaultValue {
+    NSURL *value = [self cache_URLForKey:key];
     return value == nil ? defaultValue : value;
 }
 
-+ (void)cache_setUrlSynchronizing:(NSURL *)value forKey:(NSString *)key {
++ (void)cache_setURLSynchronizing:(NSURL *)value forKey:(NSString *)key {
     [_cache setObject:value forKey:key];
     [_userDefaults setURL:value forKey:key];
     [_userDefaults synchronize];

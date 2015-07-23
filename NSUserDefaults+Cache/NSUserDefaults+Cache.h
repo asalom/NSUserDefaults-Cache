@@ -188,20 +188,20 @@
  @param key Key to identify the value
  @return NSURL found or nil if not found
  */
-+ (NSURL *)cache_urlForKey:(NSString *)key;
++ (NSURL *)cache_URLForKey:(NSString *)key;
 
 /** Retrieves a NSURL from either the cache or disk
  @param key Key to identify the value
  @param defaultValue Default value in case nothing is found given the provided key
  @return NSURL found found or defaultValue if not found
  */
-+ (NSURL *)cache_urlForKey:(NSString *)key defaultValue:(NSURL *)defaultValue;
++ (NSURL *)cache_URLForKey:(NSString *)key defaultValue:(NSURL *)defaultValue;
 
 /** Writes in disk and in the cache the provided NSURL
  @param value NSURL to be stored in the cache and disk
  @param key Key to identify the value
  */
-+ (void)cache_setUrlSynchronizing:(NSURL *)value forKey:(NSString *)key;
++ (void)cache_setURLSynchronizing:(NSURL *)value forKey:(NSString *)key;
 
 
 /**---------------------------------------------------------------------------------------

@@ -98,6 +98,12 @@
     XCTAssertEqualObjects(object, _testObject, @"Added and retrieved objects should be the same");
 }
 
+- (void)testRetrievingAnExistingObjectAddsItToTheMemoryCache {
+    OCMStub([_mockUserDefaults objectForKey:_testKey]).andReturn(@23);
+    [NSUserDefaults cache_objectForKey:_testKey];
+    XCTAssertEqualObjects([_cache objectForKey:_testKey], @23, @"When an object is requested from NSUserDefaults it should be added to the memory cache");
+}
+
 - (void)testRequestingANonExistingKeyReturnsNil {
     XCTAssertNil([NSUserDefaults cache_objectForKey:_testKey], @"Requesting a non existing key should return nil");
 }
@@ -136,8 +142,8 @@
 
 - (void)testAddingAUrlReturnsAUrlWhenRetrieved {
     NSURL *url = [NSURL URLWithString:@"http://example.com"];
-    [NSUserDefaults cache_setUrlSynchronizing:url forKey:_testKey];
-    XCTAssertEqualObjects([NSUserDefaults cache_urlForKey:_testKey].absoluteString, url.absoluteString, @"Adding a URL should return a URL when requested");
+    [NSUserDefaults cache_setURLSynchronizing:url forKey:_testKey];
+    XCTAssertEqualObjects([NSUserDefaults cache_URLForKey:_testKey].absoluteString, url.absoluteString, @"Adding a URL should return a URL when requested");
 }
 
 - (void)testCustomObjectsThatDoNotImplementNSCodingProtocolAreNotAdded {
@@ -179,7 +185,14 @@
 
 - (void)testRetrievingNonExistingUrlReturnsDefaultValue {
     NSURL *url = [NSURL URLWithString:@"http://example.com"];
-    XCTAssertEqualObjects([NSUserDefaults cache_urlForKey:_testKey defaultValue:url], url, @"Retrieving non existing URL returns default value");
+    XCTAssertEqualObjects([NSUserDefaults cache_URLForKey:_testKey defaultValue:url], url, @"Retrieving non existing URL returns default value");
+}
+
+- (void)testRetrievingAnExistingUrlAddsItToTheMemoryCache {
+    NSURL *testUrl = [NSURL URLWithString:@"https://example.com/"];
+    OCMStub([_mockUserDefaults URLForKey:_testKey]).andReturn(testUrl);
+    [NSUserDefaults cache_URLForKey:_testKey];
+    XCTAssertEqualObjects([_cache objectForKey:_testKey], testUrl, @"When a URL is requested from NSUserDefaults it should be added to the memory cache");
 }
 
 @end
