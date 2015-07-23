@@ -1,4 +1,4 @@
 coverage_service: coveralls
-xcodeproj: NSUserDefaultsCache/NSUserDefaultsCache.xcodeproj
+xcodeproj: NSUserDefaultsCache.xcodeproj
 ignore:
   - NSUserDefaultsCache/*
