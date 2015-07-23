@@ -3,9 +3,24 @@
 [![Build Status](https://travis-ci.org/asalom/NSUserDefaults-Cache.svg)](https://travis-ci.org/asalom/NSUserDefaults-Cache)
 [![codecov.io](http://codecov.io/github/asalom/NSUserDefaults-Cache/coverage.svg?branch=master)](http://codecov.io/github/asalom/NSUserDefaults-Cache?branch=master)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![CocoaPods](https://img.shields.io/cocoapods/v/NSUserDefaults+Cache.svg)](https://cocoapods.org/pods/NSUserDefaults+Cache)
 
-NSUserDefaults category one liner that also includes a cache so we only need to access disk once per item. 
-Installation is simple: Just include the two files at the NSUserDefaults+Cache directory.
+NSUserDefaults category one liner that also includes a cache so we only need to access disk once per item.
+
+## Installation
+### Manual
+Just include the two files at the NSUserDefaults+Cache directory.
+
+### Cocoapods
+Add the following line to your Podfile:
+```ruby
+pod 'NSUserDefaults+Cache'
+```
+
+Then run the following command from the Terminal in the same directory as your Podile:
+```ruby
+pod install
+```
 
 ## Usage
 NSUserDefaults+Cache mimics all methods from [NSUserDefaults](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/%22NSUserDefaults%22) and provides a few more. You can for example specify default values in case the key you request was not found. You can also save and retrieve custom objects. Notice that for custom objects to be saved you will need to implement the NSCoding protocol, i.e.

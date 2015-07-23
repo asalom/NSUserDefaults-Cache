@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license  = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Alex Salom" => "hola@alexsalom.es" }
   s.source           = {
-    :git => 'https://github.com/asalom/NSUserDefaults-Cache',
+    :git => 'https://github.com/asalom/NSUserDefaults-Cache.git',
     :branch => 'master',
     :tag => s.version.to_s
   }
