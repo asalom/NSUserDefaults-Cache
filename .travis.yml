@@ -1,4 +1,5 @@
 language: objective-c
 before_install: gem install slather -N
 script: xctool -workspace NSUserDefaultsCache/NSUserDefaultsCache.xcworkspace -scheme NSUserDefaultsCacheTests -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES clean build test
-after_success: slather
+after_success:
+	- bash <(curl -s https://codecov.io/bash) -t 7867f305-ad33-4e74-bd14-c215420535b5
