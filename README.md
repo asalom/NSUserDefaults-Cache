@@ -5,11 +5,11 @@
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![CocoaPods](https://img.shields.io/cocoapods/v/NSUserDefaults+Cache.svg)](https://cocoapods.org/pods/NSUserDefaults+Cache)
 
-NSUserDefaults category one liner that also includes a cache so we only need to access disk once per item.
+NSUserDefaults category one liner that also includes a memory cache so we only need to access disk once per item.
 
 ## Installation
 ### Manual
-Just include the two files at the NSUserDefaults+Cache directory.
+Just include the two files within the NSUserDefaults+Cache directory.
 
 ### Cocoapods
 Add the following line to your Podfile:
@@ -17,13 +17,13 @@ Add the following line to your Podfile:
 pod 'NSUserDefaults+Cache'
 ```
 
-Then run the following command from the Terminal in the same directory as your Podile:
+Then run the following command from the Terminal while in the same directory as your Podfile:
 ```ruby
 pod install
 ```
 
 ## Usage
-NSUserDefaults+Cache mimics all methods from [NSUserDefaults](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/%22NSUserDefaults%22) and provides a few more. You can for example specify default values in case the key you request was not found. You can also save and retrieve custom objects. Notice that for custom objects to be saved you will need to implement the NSCoding protocol, i.e.
+NSUserDefaults+Cache mimics all setting/getting methods from [NSUserDefaults](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/%22NSUserDefaults%22) and provides a few more. While retrieving information you can, for example, specify default values in case the key you requested was not found. You can also save and retrieve custom objects. Notice that for custom objects to be saved you will need to implement the NSCoding protocol, i.e.
 ```objective-c
 @interface CustomCodingObject : CustomObject <NSCoding>
 @property id customAttribute;
