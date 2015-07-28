@@ -74,10 +74,6 @@
     [super tearDown];
 }
 
-- (void)testContainsKeyDoesntCrashWithNilKey {
-    XCTAssertNoThrow([NSUserDefaults cache_containsKey:nil], @"Requesting a nil key should not crash");
-}
-
 - (void)testRetrievingNonExistingKeyReturnsFalse {
     XCTAssertFalse([NSUserDefaults cache_containsKey:_testKey], @"Retrieving non existing key returns NO");
 }
@@ -193,6 +189,16 @@
     OCMStub([_mockUserDefaults URLForKey:_testKey]).andReturn(testUrl);
     [NSUserDefaults cache_URLForKey:_testKey];
     XCTAssertEqualObjects([_cache objectForKey:_testKey], testUrl, @"When a URL is requested from NSUserDefaults it should be added to the memory cache");
+}
+
+- (void)testSearchingObjectForANilKeyThrowsException {
+    [NSUserDefaults cache_setUserDefaults:[NSUserDefaults standardUserDefaults]];
+    XCTAssertThrows([NSUserDefaults cache_objectForKey:nil], @"Searching a nil object throws an exception");
+}
+
+- (void)testSearchingUrlForANilKeyThrowsException {
+    [NSUserDefaults cache_setUserDefaults:[NSUserDefaults standardUserDefaults]];
+    XCTAssertThrows([NSUserDefaults cache_URLForKey:nil], @"Searching a nil NSURL throws an exception");
 }
 
 @end

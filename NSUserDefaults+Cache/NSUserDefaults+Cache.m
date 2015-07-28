@@ -37,6 +37,10 @@ static NSUserDefaults * _userDefaults = nil;
 
 #pragma mark - Object
 + (id)cache_objectForKey:(NSString *)key {
+    if (!key) {
+        [NSException raise:@"nil key exception" format:@"A key can not be nil"];
+    }
+    
     if ([_cache objectForKey:key]) {
         return [_cache objectForKey:key];
     }
@@ -155,6 +159,10 @@ static NSUserDefaults * _userDefaults = nil;
  3.- Any path-based file: scheme URL is written by first taking the absolute URL, getting the path from that and then determining if the path can be made relative to the user's home directory. If it can, the string is abbreviated by using stringByAbbreviatingWithTildeInPath and written out. This allows pre-10.6 clients to read the default and use -[NSString stringByExpandingTildeInPath] to use this information.
  */
 + (NSURL *)cache_URLForKey:(NSString *)key {
+    if (!key) {
+        [NSException raise:@"nil key exception" format:@"Requesting a nil key should not throw an exception"];
+    }
+    
     if ([_cache objectForKey:key]) {
         return [_cache objectForKey:key];
     }
